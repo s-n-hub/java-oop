@@ -13,6 +13,7 @@ Im Folgenden entsteht eine Übersicht der Übungen, die ich nach und nach ergän
 | Übung                       | Thema                            | Beschreibung                                                                  |
 |-----------------------------|----------------------------------|-------------------------------------------------------------------------------|
 | [Buch-Klasse](#buch-klasse) | Klassen, Konstruktoren, Methoden | Modellierung von Buch-Objekten und Methode zur Ausgabe einer Buchbeschreibung |
+| [Auto-Klasse](#auto-klasse) | Klassen, Konstruktoren, Methoden | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters  |
 | ...                         | ...                              | ...                                                                           |
 
 
@@ -45,5 +46,24 @@ Modelliert ein Buch mit typischen Attributen wie Titel, Autor, Erscheinungsjahr 
 - Getter/Setter erstellen
 - Vergleich von Büchern (z.B. nach Erscheinungsjahr)
 - Speicherung mehrerer Bücher in einem Array oder einer Liste
+---
+## Auto-Klasse
+
+**Thema:** Klassen, Konstruktoren, Methoden  
+**Datei:** `Auto.java`
+
+**Beschreibung:**  
+Modelliert ein Auto mit den Attributen Marke, Modell, Baujahr und Kilometerstand. Mithilfe einer Methode wird das Alter des Autos basierend auf einem festen Bezugsjahr (2024) berechnet. In der `main()`-Methode werden zwei Autoobjekte erstellt und das Fahrzeug-Alter ausgegeben.
+
+**Lernziele:**
+- Definition und Initialisierung eigener Klassen mit Attributen
+- Konstruktor mit mehreren Parametern
+- Einfache Berechnung anhand von Attributwerten
+- Verwendung einer nicht-statischen Methode und Ausgabe über `System.out.println`
+
+**Erweiterungsideen:**
+- Dynamische Altersberechnung mit `LocalDate.now().getYear()`
+- Methode zur Bewertung des Kilometerstands
+- Vergleichsmethode für zwei Autos (z.B. welches älter ist)
 ---
 ...
