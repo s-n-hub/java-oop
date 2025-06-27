@@ -10,9 +10,10 @@ Die Programme sind bewusst einfach gehalten. Sie illustrieren grundlegende OOP-K
 Im Folgenden entsteht eine Übersicht der Übungen, die ich nach und nach ergänze.
 
 
-| Übung                                                   | Thema                           | Beschreibung                                                           |
-|---------------------------------------------------------|---------------------------------|------------------------------------------------------------------------|
-| ...                                                     | ...                             | ...                                                                    |
+| Übung                       | Thema                            | Beschreibung                                                                  |
+|-----------------------------|----------------------------------|-------------------------------------------------------------------------------|
+| [Buch-Klasse](#buch-klasse) | Klassen, Konstruktoren, Methoden | Modellierung von Buch-Objekten und Methode zur Ausgabe einer Buchbeschreibung |
+| ...                         | ...                              | ...                                                                           |
 
 
 ## Struktur
@@ -26,5 +27,23 @@ Alle Programme können direkt in einer Java-IDE ausgeführt werden. SDK: Java 21
 ---
 
 ---
-## Einzelne Übungen
-... 
+## Buch-Klasse
+
+**Thema:** Klassen, Konstruktoren, Methoden  
+**Datei:** `Buch.java`
+
+**Beschreibung:**  
+Modelliert ein Buch mit typischen Attributen wie Titel, Autor, Erscheinungsjahr und ISBN. Die Methode `beschreibungAnzeigen()` liefert eine formatierte Beschreibung des Buchs. In der `main()`-Methode werden zwei Buchobjekte erstellt und ausgegeben.
+
+**Lernziele:**
+- Definition eigener Klassen und Attribute
+- Konstruktor mit Parametern
+- Objektorientiertes Arbeiten mit Methoden
+- String-Verkettung und Konsolenausgabe
+
+**Erweiterungsideen:**
+- Getter/Setter erstellen
+- Vergleich von Büchern (z.B. nach Erscheinungsjahr)
+- Speicherung mehrerer Bücher in einem Array oder einer Liste
+---
+...
