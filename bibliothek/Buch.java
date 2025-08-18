@@ -11,15 +11,16 @@
  * Lernziele:
  * - Definition und Verwendung eigener Klassen
  * - Konstruktor mit Parametern
+ * - Erstellen von Gettern
  * - Objektorientiertes Arbeiten mit Attributen und Methoden
  * - Einfache String-Verkettung und Konsolenausgabe
  *
  * Eigene Erweiterungsideen:
- * - Getter/Setter erstellen
- * - Methoden zum Vergleich zweier Bücher, etwa nach Erscheinungsjahr oder Autor:in
- * - Sammlung von Buchobjekten (Array oder ArrayList)
+ * - Setter erstellen (nicht zwingend, da Buchdaten sich nicht ändern)
+ * - beschreibungAnzeigen ersetzen durch toString() mit übersichtlicherer Ausgabe
  */
 
+package bibliothek;
 
 public class Buch {
 
@@ -40,6 +41,38 @@ public class Buch {
         this.autor = autor;
         this.erscheinungsjahr = erscheinungsjahr;
         this.isbn = isbn;
+    }
+
+    /**
+     * Gibt den Titel des Buchs zurück.
+     * @return Titel des Buchs
+     */
+    public String getTitel() {
+        return titel;
+    }
+
+    /**
+     * Gibt den Autor oder die Autorin des Buchs zurück.
+     * @return Name des Autors oder der Autorin
+     */
+    public String getAutor() {
+        return autor;
+    }
+
+    /**
+     * Gibt das Erscheinungsjahr des Buchs zurück.
+     * @return Erscheinungsjahr als Ganzzahl
+     */
+    public int getErscheinungsjahr() {
+        return erscheinungsjahr;
+    }
+
+    /**
+     * Gibt die ISBN-Nummer des Buchs zurück.
+     * @return ISBN als Zeichenkette
+     */
+    public String getIsbn() {
+        return isbn;
     }
 
     /**
