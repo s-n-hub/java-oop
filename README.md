@@ -10,11 +10,11 @@ Die Programme sind bewusst einfach gehalten. Sie illustrieren grundlegende OOP-K
 Im Folgenden entsteht eine Übersicht der Übungen, die ich nach und nach ergänze.
 
 
-| Übung                       | Thema                            | Beschreibung                                                                  |
-|-----------------------------|----------------------------------|-------------------------------------------------------------------------------|
-| [Buch-Klasse](#buch-klasse) | Klassen, Konstruktoren, Methoden | Modellierung von Buch-Objekten und Methode zur Ausgabe einer Buchbeschreibung |
-| [Auto-Klasse](#auto-klasse) | Klassen, Konstruktoren, Methoden | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters  |
-| ...                         | ...                              | ...                                                                           |
+| Übung                                   | Thema                                 | Beschreibung                                                                    |
+|-----------------------------------------|---------------------------------------|---------------------------------------------------------------------------------|
+| [Auto-Klasse](#auto-klasse)             | Klassen, Konstruktoren, Methoden      | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters    |
+| [Bibliotheks-Paket](#bibliotheks-paket) | Zusammenspiel mehrerer Klassen, Array | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben |
+| ...                                     | ...                                   | ...                                                                             |
 
 
 ## Struktur
@@ -27,25 +27,6 @@ Alle Programme können direkt in einer Java-IDE ausgeführt werden. SDK: Java 21
 
 ---
 
----
-## Buch-Klasse
-
-**Thema:** Klassen, Konstruktoren, Methoden  
-**Datei:** `Buch.java`
-
-**Beschreibung:**  
-Modelliert ein Buch mit typischen Attributen wie Titel, Autor, Erscheinungsjahr und ISBN. Die Methode `beschreibungAnzeigen()` liefert eine formatierte Beschreibung des Buchs. In der `main()`-Methode werden zwei Buchobjekte erstellt und ausgegeben.
-
-**Lernziele:**
-- Definition eigener Klassen und Attribute
-- Konstruktor mit Parametern
-- Objektorientiertes Arbeiten mit Methoden
-- String-Verkettung und Konsolenausgabe
-
-**Erweiterungsideen:**
-- Getter/Setter erstellen
-- Vergleich von Büchern (z.B. nach Erscheinungsjahr)
-- Speicherung mehrerer Bücher in einem Array oder einer Liste
 ---
 ## Auto-Klasse
 
@@ -66,4 +47,26 @@ Modelliert ein Auto mit den Attributen Marke, Modell, Baujahr und Kilometerstand
 - Methode zur Bewertung des Kilometerstands
 - Vergleichsmethode für zwei Autos (z.B. welches älter ist)
 ---
-...
+## Bibliotheks-Paket
+
+**Thema:** Zusammenspiel mehrerer Klassen in einem Paket, Array-basierte Verwaltung  
+**Dateien:** `bibliothek/Buch.java`, `bibliothek/Bibliothek.java`
+
+**Beschreibung:**  
+`Buch` modelliert ein Buch mit typischen Attributen wie Titel, Autor, Erscheinungsjahr und ISBN. Eine Methode gibt eine formatierte Buchbeschreibung aus.  
+`Bibliothek` verwaltet ein Array von `Buch`-Objekten mit fester Kapazität. Bücher können an der ersten freien Position hinzugefügt werden; der aktuelle Bestand wird nummeriert ausgegeben. 
+
+**Lernziele:**
+- Definition eigener Klassen und Arbeiten mit Methoden
+- Zusammenspiel zwischen Klassen in einem Paket
+- Nutzung eines Arrays zur Verwaltung von Objekten
+
+
+
+**Erweiterungsideen:**
+- Validierung im Konstruktor (Anzahl > 0), robustere Fehlerbehandlung
+- Methoden zum Suchen/Entfernen (z.B. per ISBN oder Autor:in)
+- Duplikatprüfung (ISBN)
+- Umstieg auf `ArrayList` für flexible Kapazität
+- Sortierte Ausgabe (Titel, Jahr, Autor:in) oder Export (z. B. CSV)
+---
