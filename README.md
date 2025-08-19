@@ -10,11 +10,12 @@ Die Programme sind bewusst einfach gehalten. Sie illustrieren grundlegende OOP-K
 Im Folgenden entsteht eine Übersicht der Übungen, die ich nach und nach ergänze.
 
 
-| Übung                                   | Thema                                 | Beschreibung                                                                    |
-|-----------------------------------------|---------------------------------------|---------------------------------------------------------------------------------|
-| [Auto-Klasse](#auto-klasse)             | Klassen, Konstruktoren, Methoden      | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters    |
-| [Bibliotheks-Paket](#bibliotheks-paket) | Zusammenspiel mehrerer Klassen, Array | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben |
-| ...                                     | ...                                   | ...                                                                             |
+| Übung                                   | Thema                                     | Beschreibung                                                                    |
+|-----------------------------------------|-------------------------------------------|---------------------------------------------------------------------------------|
+| [Auto-Klasse](#auto-klasse)             | Klassen, Konstruktoren, Methoden          | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters    |
+| [Bibliotheks-Paket](#bibliotheks-paket) | Zusammenspiel mehrerer Klassen, Array     | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben |
+| [Fahrzeug-Paket](#fahrzeug-paket)       | Vererbung, abstrakte Klassen, Überschreiben   | Abstrakte Oberklasse `Fahrzeug`, Unterklasse `Elektroauto`, Reichweiten-Demo |
+| ...                                     | ...                                       | ...                                                                             |
 
 
 ## Struktur
@@ -69,4 +70,26 @@ Modelliert ein Auto mit den Attributen Marke, Modell, Baujahr und Kilometerstand
 - Duplikatprüfung (ISBN)
 - Umstieg auf `ArrayList` für flexible Kapazität
 - Sortierte Ausgabe (Titel, Jahr, Autor:in) oder Export (z. B. CSV)
+---
+## Fahrzeug-Paket
+
+**Thema:** Vererbung & Abstraktion (abstrakte Klasse `Fahrzeug`, Unterklasse `Elektroauto`, Methodenüberschreibung)  
+**Dateien:** `fahrzeug/Fahrzeug.java`, `fahrzeug/Elektroauto.java`, `fahrzeug/FahrzeugDemo.java`
+
+**Beschreibung:**  
+`Fahrzeug` definiert gemeinsame Attribute (`marke`, `modell`, `farbe`) und zwei abstrakte Methoden: `zeigeInformationen()` und `berechneReichweite()`.  
+`Elektroauto` erbt von `Fahrzeug`, ergänzt `batteriekapazitaet` (kWh) und berechnet eine einfache Reichweite über eine Konstante (`KM_PRO_KWH`).  
+`FahrzeugDemo` erstellt ein `Elektroauto`, gibt die Daten aus und zeigt die berechnete Reichweite.
+
+**Lernziele:**
+- Abstrakte Klassen und Methoden
+- Vererbung und Konstruktorverkettung (`super`)
+- Methodenüberschreibung (`@Override`)
+- Einsatz einer Konstanten zur einfachen Berechnungslogik
+
+**Erweiterungsideen:**
+- Realistischere Formel (z. B. Verbrauch in kWh/100 km)
+- Weitere Subtypen (Verbrenner, Hybrid)
+- Konsistente Formatierung mit `String.format()` oder `toString()`
+- Einfache Validierung (keine negativen Werte) und einheitliche Einheitenangaben
 ---
