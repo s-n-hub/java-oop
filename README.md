@@ -10,12 +10,13 @@ Die Programme sind bewusst einfach gehalten. Sie illustrieren grundlegende OOP-K
 Im Folgenden entsteht eine Übersicht der Übungen, die ich nach und nach ergänze.
 
 
-| Übung                                   | Thema                                     | Beschreibung                                                                    |
-|-----------------------------------------|-------------------------------------------|---------------------------------------------------------------------------------|
-| [Auto-Klasse](#auto-klasse)             | Klassen, Konstruktoren, Methoden          | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters    |
-| [Bibliotheks-Paket](#bibliotheks-paket) | Zusammenspiel mehrerer Klassen, Array     | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben |
-| [Fahrzeug-Paket](#fahrzeug-paket)       | Vererbung, abstrakte Klassen, Überschreiben   | Abstrakte Oberklasse `Fahrzeug`, Unterklasse `Elektroauto`, Reichweiten-Demo |
-| ...                                     | ...                                       | ...                                                                             |
+| Übung                                   | Thema                                          | Beschreibung                                                                            |
+|-----------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [Auto-Klasse](#auto-klasse)             | Klassen, Konstruktoren, Methoden               | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters            |
+| [Bibliotheks-Paket](#bibliotheks-paket) | Zusammenspiel mehrerer Klassen, Array          | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben         |
+| [Fahrzeug-Paket](#fahrzeug-paket)       | Vererbung, abstrakte Klassen, Überschreiben    | Abstrakte Oberklasse `Fahrzeug` vererbt an Unterklasse `Elektroauto`, Demo der Methoden |
+| [Tier-Paket](#tier-paket)               | Vererbung, abstrakte Klassen, Klassenvariablen | Abstrakte Oberklasse `Tier` vererbt an Unterklasse `Katze` und zählt alle Tier-Objekte  |
+| ...                                     | ...                                            | ...                                                                                     |
 
 
 ## Struktur
@@ -73,7 +74,7 @@ Modelliert ein Auto mit den Attributen Marke, Modell, Baujahr und Kilometerstand
 ---
 ## Fahrzeug-Paket
 
-**Thema:** Vererbung & Abstraktion (abstrakte Klasse `Fahrzeug`, Unterklasse `Elektroauto`, Methodenüberschreibung)  
+**Thema:** Vererbung & Abstraktion  
 **Dateien:** `fahrzeug/Fahrzeug.java`, `fahrzeug/Elektroauto.java`, `fahrzeug/FahrzeugDemo.java`
 
 **Beschreibung:**  
@@ -92,4 +93,29 @@ Modelliert ein Auto mit den Attributen Marke, Modell, Baujahr und Kilometerstand
 - Weitere Subtypen (Verbrenner, Hybrid)
 - Konsistente Formatierung mit `String.format()` oder `toString()`
 - Einfache Validierung (keine negativen Werte) und einheitliche Einheitenangaben
+---
+## Tier-Paket
+
+**Thema:** Vererbung & Abstraktion 
+**Dateien:** `tier/Tier.java`, `tier/Katze.java`
+
+**Beschreibung:**
+`Tier` definiert gemeinsame Attribute (`name`, `alter`) und zählt die Gesamtzahl aller erzeugten Tier-Instanzen über ein statisches Klassenmitglied (`anzahlTiere`). 
+Es stellt eine abstrakte Methode `gibLaut()` bereit sowie Zugriffsmethoden (`getName()`, `getAlter()`, `setAlter(int)`) und die statische Methode `getAnzahlTiere()`.
+`Katze` erbt von `Tier`, implementiert `gibLaut()` und enthält eine einfache main-Methode, die zwei Katzen erzeugt, deren Laute ausgibt und die Gesamtzahl der Tiere anzeigt.
+
+**Lernziele:**
+- abstrakte Klassen und Methoden
+- Sichtbarkeit mit public, protected, private
+- Vererbung und Konstruktorverkettung (super)
+- Methodenüberschreibung (@Override)
+- statische Klassenmitglieder und static-Methoden als globaler Zähler
+
+**Erweiterungsideen:**
+- einfache Validierung (kein negatives Alter, Name nicht leer)
+- weitere Subtypen (Hund, Fisch, Maus)
+- gemeinsame Hilfsmethode toString() zur formatierten Ausgabe
+- Alter dynamisch über Geburtsdatum und aktuelles Datum
+- separate Demo-Klasse statt main in Katze
+- erste JUnit-Tests für gibLaut() und den Zähler
 ---
