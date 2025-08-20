@@ -10,13 +10,14 @@ Die Programme sind bewusst einfach gehalten. Sie illustrieren grundlegende OOP-K
 Im Folgenden entsteht eine Übersicht der Übungen, die ich nach und nach ergänze.
 
 
-| Übung                                   | Thema                                          | Beschreibung                                                                            |
-|-----------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------------------|
-| [Auto-Klasse](#auto-klasse)             | Klassen, Konstruktoren, Methoden               | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters            |
-| [Bibliotheks-Paket](#bibliotheks-paket) | Zusammenspiel mehrerer Klassen, Array          | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben         |
-| [Fahrzeug-Paket](#fahrzeug-paket)       | Vererbung, abstrakte Klassen, Überschreiben    | Abstrakte Oberklasse `Fahrzeug` vererbt an Unterklasse `Elektroauto`, Demo der Methoden |
-| [Tier-Paket](#tier-paket)               | Vererbung, abstrakte Klassen, Klassenvariablen | Abstrakte Oberklasse `Tier` vererbt an Unterklasse `Katze` und zählt alle Tier-Objekte  |
-| ...                                     | ...                                            | ...                                                                                     |
+| Übung                                   | Thema                                          | Beschreibung                                                                                                    |
+|-----------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| [Auto-Klasse](#auto-klasse)             | Klassen, Konstruktoren, Methoden               | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters                                    |
+| [Bibliotheks-Paket](#bibliotheks-paket) | Zusammenspiel mehrerer Klassen, Array          | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben                                 |
+| [Fahrzeug-Paket](#fahrzeug-paket)       | Vererbung, abstrakte Klassen, Überschreiben    | Abstrakte Oberklasse `Fahrzeug` vererbt an Unterklasse `Elektroauto`, Demo der Methoden                         |
+| [Tier-Paket](#tier-paket)               | Vererbung, abstrakte Klassen, Klassenvariablen | Abstrakte Oberklasse `Tier` vererbt an Unterklasse `Katze` und zählt alle Tier-Objekte                          |
+| [Unipersonal-Paket](#unipersonal-paket) | Polymorphie, Typecasting, abstrakte Klassen    | Abstrakte Oberklasse `Person` vererbt an Unterklassen `Student` und `Dozent`, Demo von Polymorphie und Downcasting |
+| ...                                     | ...                                            | ...                                                                                                             |
 
 
 ## Struktur
@@ -100,8 +101,8 @@ Modelliert ein Auto mit den Attributen Marke, Modell, Baujahr und Kilometerstand
 **Dateien:** `tier/Tier.java`, `tier/Katze.java`
 
 **Beschreibung:**
-`Tier` definiert gemeinsame Attribute (`name`, `alter`) und zählt die Gesamtzahl aller erzeugten Tier-Instanzen über ein statisches Klassenmitglied (`anzahlTiere`). 
-Es stellt eine abstrakte Methode `gibLaut()` bereit sowie Zugriffsmethoden (`getName()`, `getAlter()`, `setAlter(int)`) und die statische Methode `getAnzahlTiere()`.
+`Tier` definiert gemeinsame Attribute (`name`, `alter`) und zählt die Gesamtzahl aller erzeugten Tier-Instanzen über ein statisches Klassenmitglied (`anzahlTiere`).   
+Es stellt eine abstrakte Methode `gibLaut()` bereit sowie Zugriffsmethoden (`getName()`, `getAlter()`, `setAlter(int)`) und die statische Methode `getAnzahlTiere()`.  
 `Katze` erbt von `Tier`, implementiert `gibLaut()` und enthält eine einfache main-Methode, die zwei Katzen erzeugt, deren Laute ausgibt und die Gesamtzahl der Tiere anzeigt.
 
 **Lernziele:**
@@ -118,4 +119,25 @@ Es stellt eine abstrakte Methode `gibLaut()` bereit sowie Zugriffsmethoden (`get
 - Alter dynamisch über Geburtsdatum und aktuelles Datum
 - separate Demo-Klasse statt main in Katze
 - erste JUnit-Tests für gibLaut() und den Zähler
+---
+## Unipersonal-Paket
+
+**Thema:** Polymorphie, Upcasting/Downcasting, abstrakte Klassen  
+**Dateien:** `unipersonal/Person.java`, `unipersonal/Student.java`, `unipersonal/Dozent.java`, `unipersonal/UnipersonalDemo.java`
+
+**Beschreibung:**  
+`Person` ist eine abstrakte Oberklasse mit den Subklassen `Student` und `Dozent`.  
+Die Demo-Klasse erzeugt verschiedene Objekte und speichert sie in einem `Person[]`. Beim Aufruf von `beschreibePerson()` wird durch dynamisches Binden automatisch die richtige Subtyp-Implementierung ausgeführt.  
+Zusätzlich wird über Downcasting mit `instanceof` auf Subtyp-spezifische Details zugegriffen, z. B. Matrikelnummer oder Büronummer.
+
+**Lernziele:**
+- Abstrakte Klassen und Methoden
+- Methodenüberschreibung (@Override)
+- Polymorphie über Oberklassenreferenzen
+- Upcasting (implizit) und Downcasting mit `instanceof`
+
+**Erweiterungsideen:**
+- Eingabevalidierung (keine leeren Namen, positive Nummern)
+- `toString()` für Kurzinfo, `beschreibePerson()` für ausführlichere Beschreibung
+- Kleine JUnit-Tests für `beschreibePerson()` und Getter
 ---
