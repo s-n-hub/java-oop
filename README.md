@@ -2,22 +2,23 @@
 
 In diesem Repository sammle ich Java-Übungen aus meiner Weiterbildung zur Softwareentwicklerin mit Fokus auf objektorientierte Programmierung (OOP).
 
-Die Programme sind bewusst einfach gehalten. Sie illustrieren grundlegende OOP-Konzepte wie Klassen, Objekte, Vererbung, Polymorphie und Abstraktion. Sie dienen zum Einüben typischer Strukturen und enthalten teilweise Hinweise auf Erweiterungen oder alternative Umsetzungen. Sie spiegeln meinen Lernstand während des Einstiegs in die OOP mit Java wider.
+Die Programme sind bewusst einfach gehalten. Sie illustrieren grundlegende OOP-Konzepte wie Klassen, Objekte, Vererbung, Polymorphie und Abstraktion. Sie dienen zum Einüben typischer Strukturen und enthalten Hinweise auf Erweiterungen oder alternative Umsetzungen. Sie spiegeln meinen früheren Lernstand während des Einstiegs in die OOP mit Java wider.
 
+Das Repository ist in diesem Zustand zunächst abgeschlossen. Eine Überarbeitung einzelner Programme mit fortgeschritteneren Konzepten kann ggf. in einem separaten Branch ergänzt werden.
 
 ## Inhalt
 
 Im Folgenden entsteht eine Übersicht der Übungen, die ich nach und nach ergänze.
 
 
-| Übung                                   | Thema                                          | Beschreibung                                                                                                    |
-|-----------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [Auto-Klasse](#auto-klasse)             | Klassen, Konstruktoren, Methoden               | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters                                    |
-| [Bibliotheks-Paket](#bibliotheks-paket) | Zusammenspiel mehrerer Klassen, Array          | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben                                 |
-| [Fahrzeug-Paket](#fahrzeug-paket)       | Vererbung, abstrakte Klassen, Überschreiben    | Abstrakte Oberklasse `Fahrzeug` vererbt an Unterklasse `Elektroauto`, Demo der Methoden                         |
-| [Tier-Paket](#tier-paket)               | Vererbung, abstrakte Klassen, Klassenvariablen | Abstrakte Oberklasse `Tier` vererbt an Unterklasse `Katze` und zählt alle Tier-Objekte                          |
-| [Unipersonal-Paket](#unipersonal-paket) | Polymorphie, Typecasting, abstrakte Klassen    | Abstrakte Oberklasse `Person` vererbt an Unterklassen `Student` und `Dozent`, Demo von Polymorphie und Downcasting |
-| ...                                     | ...                                            | ...                                                                                                             |
+| Übung                                                 | Thema                                          | Beschreibung                                                                                                                  |
+|-------------------------------------------------------|------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| [Auto-Klasse](#auto-klasse)                           | Klassen, Konstruktoren, Methoden               | Modellierung von Auto-Objekten und Methode zur Berechnung des Fahrzeugalters                                                  |
+| [Bibliotheks-Paket](#bibliotheks-paket)               | Zusammenspiel mehrerer Klassen, Array          | Modellierung einer einfachen Bibliothek: Bücher hinzufügen und Bestand ausgeben                                               |
+| [Fahrzeug-Paket](#fahrzeug-paket)                     | Vererbung, abstrakte Klassen, Überschreiben    | Abstrakte Oberklasse `Fahrzeug` vererbt an Unterklasse `Elektroauto`, Demo der Methoden                                       |
+| [Tier-Paket](#tier-paket)                             | Vererbung, abstrakte Klassen, Klassenvariablen | Abstrakte Oberklasse `Tier` vererbt an Unterklasse `Katze` und zählt alle Tier-Objekte                                        |
+| [Unipersonal-Paket](#unipersonal-paket)               | Polymorphie, Typecasting, abstrakte Klassen    | Abstrakte Oberklasse `Person` vererbt an Unterklassen `Student` und `Dozent`, Demo von Polymorphie und Downcasting            |
+| [Personalverwaltung-Paket](#personalverwaltung-paket) | Abstrakte Klassen, Vererbung, Polymorphie      | Modellierung verschiedener Mitarbeitertypen (Manager, Entwickler) mit abstrakter Basisklasse und polymorpher Kostenberechnung |
 
 
 ## Struktur
@@ -140,4 +141,29 @@ Zusätzlich wird über Downcasting mit `instanceof` auf Subtyp-spezifische Detai
 - Eingabevalidierung (keine leeren Namen, positive Nummern)
 - `toString()` für Kurzinfo, `beschreibePerson()` für ausführlichere Beschreibung
 - Kleine JUnit-Tests für `beschreibePerson()` und Getter
+---
+## Personalverwaltung-Paket
+
+**Thema:** Abstrakte Klassen, Vererbung, Polymorphie  
+**Dateien:** `personal/Mitarbeiter.java`, `personal/Manager.java`, `personal/Entwickler.java`, `personal/PersonalverwaltungDemo.java`
+
+**Beschreibung:**  
+`Mitarbeiter` definiert gemeinsame Attribute (Vorname, Nachname, Abteilung, Jahresgehalt), eine abstrakte Methode `beschreibePosition()` und eine Methode `getGesamtkosten()`.  
+`Manager` erweitert `Mitarbeiter` um das Attribut `bonus` und überschreibt sowohl die Aufgabenbeschreibung als auch die Kostenberechnung.  
+`Entwickler` erbt von `Mitarbeiter` und überschreibt die Aufgabenbeschreibung.  
+`PersonalverwaltungDemo` erzeugt mehrere Objekte, legt sie in eine Liste, gibt ihre Informationen aus und demonstriert die polymorphe Kostenberechnung über eine Methode `berechneGesamtkosten()`.
+
+**Lernziele:**
+- Abstrakte Klassen und Methoden
+- Vererbung und Methodenüberschreibung
+- Kapselung (private Felder, Getter)
+- Polymorphie in der Praxis (Kostenberechnung ohne Casting)
+- Iteration mit for-each und Nutzung von Listen (ArrayList)
+
+**Erweiterungsideen:**
+- Währungsformatierung mit `NumberFormat`
+- Eingabevalidierung für Gehalt/Bonus
+- `toString()` für formatierte Ausgabe
+- Schnittstelle `Bonusfaehig` für bonustragende Rollen
+- Einlesen von Mitarbeiterdaten aus Datei oder Konsole
 ---
